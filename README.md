@@ -1,8 +1,8 @@
 webaudiox.basicconvolver
 ========================
 
-webaudiox.basicconvolver is a three.js extension which provide an sample for other developpers.
-Thus they can copy it and start their own extension.
+webaudiox.basicconvolver is a [webaudiox](https://github.com/jeromeetienne/webaudiox)
+extension which provide basic convolvers.
 
 Show Don't Tell
 ===============
