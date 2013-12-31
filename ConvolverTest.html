@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+	
+	<script src='webaudiox.js'></script>
+	
+</head>
+<body>
+	<script>
+		// create AudioContext		
+		var context = new AudioContext();
+		// create audio Source object
+		var source = context.createBufferSource();
+		// create Convolver node
+		var convolver = context.createConvolver();
+		// create ConvolverHelper
+		var convolverHelper = new WebAudiox.ConvolverHelper(context,convolver);
+		// create LineOut 
+		var lineOut = new WebAudiox.LineOut(context);
+		lineOut.volume = 0.4;
+	
+		// load a source sound
+		WebAudiox.loadBuffer(context, 'sounds/breakbeat.wav', function(buffer) {				
+			source.buffer = buffer;
+			source.loop = true;
+			source.start(0);			
+		});
+				
+		function normalSound(){
+			//unplug everything first	
+			source.disconnect();
+			// connect sound source to lineOut(speakers)
+			source.connect(lineOut.destination);			
+		}
+		function oldTelephone(){
+			//unplug everything first	
+			source.disconnect();
+			// use Convolver Helper
+			convolverHelper.makeTelephoneFilter();
+			// connect sound source to convolver			
+			source.connect(convolver);
+			// then connect convolver to lineOut(speakers)
+			convolver.connect(lineOut.destination);
+	    }
+	    
+	    function smallRoom(){
+	    	//unplug everything first	
+			source.disconnect();
+			// use Convolver Helper
+			convolverHelper.makeSmallRoom();
+			// connect sound source to convolver			
+			source.connect(convolver);
+			// then connect convolver to lineOut(speakers)
+			convolver.connect(lineOut.destination);
+	    }
+	    function mediumRoom(){
+	    	//unplug everything first	
+			source.disconnect();
+			// use Convolver Helper
+			convolverHelper.makeMediumRoom();
+			// connect sound source to convolver			
+			source.connect(convolver);
+			// then connect convolver to lineOut(speakers)
+			convolver.connect(lineOut.destination);
+	    }
+	    function largeRoom(){
+	    	//unplug everything first	
+			source.disconnect();
+			// use Convolver Helper
+			convolverHelper.makeLargeRoom();
+			// connect sound source to convolver			
+			source.connect(convolver);
+			// then connect convolver to lineOut(speakers)
+			convolver.connect(lineOut.destination);
+	    }
+	    function hugeWarehouse(){
+	    	//unplug everything first	
+			source.disconnect();
+			// use Convolver Helper
+			convolverHelper.makeHugeWarehouse();
+			// connect sound source to convolver			
+			source.connect(convolver);
+			// then connect convolver to lineOut(speakers)
+			convolver.connect(lineOut.destination);
+	    }
+	    function muffledSound(){
+	    	//unplug everything first	
+			source.disconnect();
+			// use Convolver Helper
+			convolverHelper.makeMuffledSound();
+			// connect sound source to convolver			
+			source.connect(convolver);
+			// then connect convolver to lineOut(speakers)
+			convolver.connect(lineOut.destination);
+	    }
+	    function springBack(){
+	    	//unplug everything first	
+			source.disconnect();
+			// use Convolver Helper
+			convolverHelper.makeSpringBack();
+			// connect sound source to convolver			
+			source.connect(convolver);
+			// then connect convolver to lineOut(speakers)
+			convolver.connect(lineOut.destination);
+	    }   
+	    function stereoSpreader(){
+	    	//unplug everything first	
+			source.disconnect();
+			// use Convolver Helper
+			convolverHelper.makeStereoSpreader();
+			// connect sound source to convolver			
+			source.connect(convolver);
+			// then connect convolver to lineOut(speakers)
+			convolver.connect(lineOut.destination);
+	    }
+	    function bigEcho(){
+	    	//unplug everything first	
+	    	source.disconnect();
+	    	// use Convolver Helper
+			convolverHelper.makeBigEcho();
+			// connect sound source to convolver			
+			source.connect(convolver);
+			// then connect convolver to lineOut(speakers)
+			convolver.connect(lineOut.destination);
+	    }
+				
+	</script>
+	
+	WebAudioX Convolver Demo <br />
+	<button type="button" onclick="normalSound()" >Original Sound</button>
+	<button type="button" onclick="oldTelephone()" >Old Telephone</button>
+	<button type="button" onclick="smallRoom()" >Small Room</button>
+	<button type="button" onclick="mediumRoom()" >Medium Room</button>
+	<button type="button" onclick="largeRoom()" >Large Room</button>
+	<button type="button" onclick="hugeWarehouse()" >Huge Warehouse</button>
+	<button type="button" onclick="muffledSound()" >Muffled</button>
+	<button type="button" onclick="springBack()" >Spring-Back</button>
+	<button type="button" onclick="stereoSpreader()" >Stereo Spreader</button>
+	<button type="button" onclick="bigEcho()" >Big Echo</button>
+	
+</body>
+</html>
