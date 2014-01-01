@@ -1,16 +1,16 @@
-webaudiox.basicconvolver
+webaudiox.ConvolverHelper
 ========================
 
-webaudiox.basicconvolver is a [webaudiox](https://github.com/jeromeetienne/webaudiox)
+webaudiox.ConvolverHelper is a [webaudiox](https://github.com/jeromeetienne/webaudiox)
 extension which provide basic convolvers.
 
 Show Don't Tell
 ===============
-* [examples/basic.html](http://jeromeetienne.github.io/webaudiox.basicconvolver/examples/basic.html)
-\[[view source](https://github.com/jeromeetienne/webaudiox.basicconvolver/blob/master/examples/basic.html)\] :
+* [examples/basic.html](http://erichlof.github.io/webaudiox.convolverhelper/examples/ConvolverDemo.html)
+\[[view source](https://github.com/erichlof/webaudiox.convolverhelper/blob/master/examples/ConvolverDemo.html)\] :
 It shows this feature, and that one which is coded like that.
-* [examples/requirejs.html](http://jeromeetienne.github.io/webaudiox.basicconvolver/examples/requirejs.html)
-\[[view source](https://github.com/jeromeetienne/webaudiox.basicconvolver/blob/master/examples/requirejs.html)\] :
+* [examples/requirejs.html](http://erichlof.github.io/webaudiox.convolverhelper/examples/requirejs.html)
+\[[view source](https://github.com/erichlof/webaudiox.convolverhelper/blob/master/examples/requirejs.html)\] :
 It does that this way, and it is cool in that case.
 
 How To Install It
@@ -19,20 +19,22 @@ How To Install It
 You can install it via script tag
 
 ```html
-<script src='webaudiox.basicconvolver.js'></script>
+<script src='webaudiox.convolverhelper.js'></script>
 ```
 
 Or you can install with [bower](http://bower.io/), as you wish.
 
 ```bash
-bower install webaudiox.basicconvolver
+bower install webaudiox.convolverhelper
 ```
 
 How To Use It
 =============
 
-there is no real use as it is only a boilerplate for your own extension.
+Check out the source for the demos above to learn how to use this extension.
 
 ```javascript
-var instance	= new THREEx.Sample()
+var convolverHelper	= new webaudiox.ConvolverHelper(context, convolver);
+//params - context   is the AudioContext that you created at the start of the program
+//params - convolver is the Web Audio API 'convolver' node that you created just before this line
 ```
