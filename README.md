@@ -6,7 +6,7 @@ extension which provide basic convolvers.
 
 Show Don't Tell
 ===============
-* [examples/basic.html](http://erichlof.github.io/webaudiox.convolverhelper/examples/ConvolverDemo.html)
+* [examples/ConvolverDemo.html](http://erichlof.github.io/webaudiox.convolverhelper/examples/ConvolverDemo.html)
 \[[view source](https://github.com/erichlof/webaudiox.convolverhelper/blob/master/examples/ConvolverDemo.html)\] :
 It shows this feature, and that one which is coded like that.
 * [examples/requirejs.html](http://erichlof.github.io/webaudiox.convolverhelper/examples/requirejs.html)
