@@ -1,6 +1,6 @@
 define( [ 'module'
-	, 'webaudiox.basicconvolver.js'
+	, 'webaudiox.convolverhelper.js'
 	], function(module){
 	// set baseUrl for this module 
-	THREEx.BasicConvolver.baseUrl    = module.uri+'/../';
+	THREEx.ConvolverHelper.baseUrl    = module.uri+'/../';
 });
