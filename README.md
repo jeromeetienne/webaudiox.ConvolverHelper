@@ -13,18 +13,6 @@ It shows all the convolver impulses.
 \[[view source](https://github.com/erichlof/webaudiox.ConvolverHelper/blob/master/examples/basic.html)\] :
 It shows a basic usage of this extension
 
-TODO
-====
-* DONE changed API
-  * found a nice api for presets i think
-* DONE made fully standalone, usable as is with pure webaudio api
-  * removed dependancy on webaudiox.js
-* in /examples
-  * normalized tab in /examples
-  * remove onclick in html
-* DONE put convolver node in the .js
-* DONE rename /impulses as /sounds
-
 How To Install It
 =================
 
