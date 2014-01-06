@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<script src='vendor/webaudiox.js'></script>
+<script src='../webaudiox.convolverhelper.js'></script>
+<body>
+	<h1>WebAudioX Convolver Demo</h1>
+	<button type="button" onclick="normalSound()" >Original Sound</button>
+	<button type="button" onclick="oldTelephone()" >Old Telephone</button>
+	<button type="button" onclick="smallRoom()" >Small Room</button>
+	<button type="button" onclick="mediumRoom()" >Medium Room</button>
+	<button type="button" onclick="largeRoom()" >Large Room</button>
+	<button type="button" onclick="hugeWarehouse()" >Huge Warehouse</button>
+	<button type="button" onclick="muffler()" >muffler</button>
+	<button type="button" onclick="springBack()" >Spring-Back</button>
+	<button type="button" onclick="stereoSpreader()" >Stereo Spreader</button>
+	<button type="button" onclick="bigEcho()" >Big Echo</button>	
+<script>
+	// create AudioContext		
+	var context = new AudioContext();
+	// create audio Source object
+	var source = context.createBufferSource();
+	// create ConvolverHelper
+	var convolverHelper	= new WebAudiox.ConvolverHelper(context);
+	var convolver		= convolverHelper.node
+	// create LineOut 
+	var lineOut	= new WebAudiox.LineOut(context);
+	lineOut.volume	= 0.4;
+
+	// load a source sound
+	WebAudiox.loadBuffer(context, 'sounds/breakbeat.wav', function(buffer){	
+	source.buffer = buffer;
+	source.loop = true;
+	source.start(0);			
+	});
+
+	function normalSound(){
+	//unplug everything first	
+	source.disconnect();
+	// connect sound source to lineOut(speakers)
+	source.connect(lineOut.destination);			
+	}
+	function oldTelephone(){
+		//unplug everything first	
+		source.disconnect();
+		// use Convolver Helper
+		convolverHelper.loadPreset('oldPhone')
+		// connect sound source to convolver			
+		source.connect(convolver);
+		// then connect convolver to lineOut(speakers)
+		convolver.connect(lineOut.destination);
+	}
+
+	function smallRoom(){
+		//unplug everything first	
+		source.disconnect();
+		// use Convolver Helper
+		convolverHelper.loadPreset('smallRoom')
+		// connect sound source to convolver			
+		source.connect(convolver);
+		// then connect convolver to lineOut(speakers)
+		convolver.connect(lineOut.destination);
+	}
+	function mediumRoom(){
+		//unplug everything first	
+		source.disconnect();
+		// use Convolver Helper
+		convolverHelper.loadPreset('mediumRoom')
+		// connect sound source to convolver			
+		source.connect(convolver);
+		// then connect convolver to lineOut(speakers)
+		convolver.connect(lineOut.destination);
+	}
+	function largeRoom(){
+		//unplug everything first	
+		source.disconnect();
+		// use Convolver Helper
+		convolverHelper.loadPreset('largeRoom')
+		// connect sound source to convolver			
+		source.connect(convolver);
+		// then connect convolver to lineOut(speakers)
+		convolver.connect(lineOut.destination);
+	}
+	function hugeWarehouse(){
+		//unplug everything first	
+		source.disconnect();
+		// use Convolver Helper
+		convolverHelper.loadPreset('hugeWarehouse')
+		// connect sound source to convolver			
+		source.connect(convolver);
+		// then connect convolver to lineOut(speakers)
+		convolver.connect(lineOut.destination);
+	}
+	function muffler(){
+		//unplug everything first	
+		source.disconnect();
+		// use Convolver Helper
+		convolverHelper.loadPreset('muffler')
+		// connect sound source to convolver			
+		source.connect(convolver);
+		// then connect convolver to lineOut(speakers)
+		convolver.connect(lineOut.destination);
+	}
+	function springBack(){
+		//unplug everything first	
+		source.disconnect();
+		// use Convolver Helper
+		convolverHelper.loadPreset('sprintBack')
+		// connect sound source to convolver			
+		source.connect(convolver);
+		// then connect convolver to lineOut(speakers)
+		convolver.connect(lineOut.destination);
+	}   
+	function stereoSpreader(){
+		//unplug everything first	
+		source.disconnect();
+		// use Convolver Helper
+		convolverHelper.loadPreset('stereoSpreader')
+		// connect sound source to convolver			
+		source.connect(convolver);
+		// then connect convolver to lineOut(speakers)
+		convolver.connect(lineOut.destination);
+	}
+	function bigEcho(){
+		//unplug everything first	
+		source.disconnect();
+		// use Convolver Helper
+		convolverHelper.loadPreset('bigEcho')
+		// connect sound source to convolver			
+		source.connect(convolver);
+		// then connect convolver to lineOut(speakers)
+		convolver.connect(lineOut.destination);
+	}
+</script></body>

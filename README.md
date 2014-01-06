@@ -6,12 +6,24 @@ extension which provide basic convolvers.
 
 Show Don't Tell
 ===============
-* [examples/ConvolverDemo.html](http://erichlof.github.io/webaudiox.ConvolverHelper/examples/ConvolverDemo.html)
-\[[view source](https://github.com/erichlof/webaudiox.ConvolverHelper/blob/master/examples/ConvolverDemo.html)\] :
-It shows this feature, and that one which is coded like that.
-* [examples/requirejs.html](http://erichlof.github.io/webaudiox.ConvolverHelper/examples/requirejs.html)
-\[[view source](https://github.com/erichlof/webaudiox.ConvolverHelper/blob/master/examples/requirejs.html)\] :
-It does that this way, and it is cool in that case.
+* [examples/select.html](http://erichlof.github.io/webaudiox.ConvolverHelper/examples/select.html)
+\[[view source](https://github.com/erichlof/webaudiox.ConvolverHelper/blob/master/examples/select.html)\] :
+It shows all the convolver impulses.
+* [examples/basic.html](http://erichlof.github.io/webaudiox.ConvolverHelper/examples/basic.html)
+\[[view source](https://github.com/erichlof/webaudiox.ConvolverHelper/blob/master/examples/basic.html)\] :
+It shows a basic usage of this extension
+
+TODO
+====
+* DONE changed API
+  * found a nice api for presets i think
+* DONE made fully standalone, usable as is with pure webaudio api
+  * removed dependancy on webaudiox.js
+* in /examples
+  * normalized tab in /examples
+  * remove onclick in html
+* DONE put convolver node in the .js
+* DONE rename /impulses as /sounds
 
 How To Install It
 =================
@@ -35,6 +47,54 @@ Check out the source for the demos above to learn how to use this extension.
 
 ```javascript
 var convolverHelper	= new webaudiox.ConvolverHelper(context, convolver);
+
 //params - context   is the AudioContext that you created at the start of the program
 //params - convolver is the Web Audio API 'convolver' node that you created just before this line
 ```
+
+```javascript
+// create AudioContext		
+var context	= new AudioContext();
+// get a sound node
+var source	= getYourSourceNode()
+// create ConvolverHelper
+var convolverHelper	= new WebAudiox.ConvolverHelper(context)
+```
+
+after that, ```convolverHelper.node``` is the ```ConvolverNode```. 
+Then connect them together 
+
+```
+// connect sound source to convolver			
+source.connect(convolverHelper.node);
+// then connect convolver to destination
+convolverHelper.node.connect(context.destination);
+```
+
+and start play the sound
+
+```
+source.buffer = buffer;
+source.loop = true;
+source.start(0);	
+```
+
+For the impulses sounds, there are a bunch of presets already configured for you.
+You can load them with the following
+
+```
+convolverHelper.loadPreset('smallRoom')
+```
+
+To get the list of all preset, paste this in js console
+
+```
+console.log('presets:', Object.keys(WebAudiox.ConvolverHelper.presets))
+```
+
+If you wish, you can load you own impulse sound from a direct url.
+
+```
+convolverHelper.loadUrl('http://examples.org/myimpulse.wav')
+```
+

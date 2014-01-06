@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script src='vendor/webaudiox.js'></script>
+<script src='../webaudiox.convolverhelper.js'></script>
+<body><script>
+	// create AudioContext		
+	var context = new AudioContext();
+	// create audio Source object
+	var source = context.createBufferSource();
+	// create ConvolverHelper
+	var convolverHelper	= new WebAudiox.ConvolverHelper(context);
+	// load a source sound
+	WebAudiox.loadBuffer(context, 'sounds/breakbeat.wav', function(buffer){
+		// start play sound
+		source.buffer = buffer;
+		source.loop = true;
+		source.start(0);	
+
+		// create ConvolverHelper
+		var convolverHelper	= new WebAudiox.ConvolverHelper(context);
+		// load convolver
+		convolverHelper.loadPreset('oldPhone')
+
+		// connect sound source to convolver			
+		source.connect(convolverHelper.node);
+		// then connect convolver to destination
+		convolverHelper.node.connect(context.destination);
+	});
+</script></body>
