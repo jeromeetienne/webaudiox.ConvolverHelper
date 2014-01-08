@@ -87,7 +87,7 @@ WebAudiox.ConvolverHelper.presets	= {
 	'largeRoom'	: 'sounds/s2_r4_bd.wav',
 	'hugeWarehouse'	: 'sounds/diffusor2.wav',
 	'muffler'	: 'sounds/muffler.wav',
-	'sprintBack'	: 'sounds/feedback-spring.wav',
+	'springBack'	: 'sounds/feedback-spring.wav',
 	'stereoSpreader': 'sounds/spreader55-75ms.wav',
 	'bigEcho'	: 'sounds/echo-chamber.wav',
 };

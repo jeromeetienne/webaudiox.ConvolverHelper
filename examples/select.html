@@ -9,7 +9,7 @@
 	<button type="button" onclick="mediumRoom()" >Medium Room</button>
 	<button type="button" onclick="largeRoom()" >Large Room</button>
 	<button type="button" onclick="hugeWarehouse()" >Huge Warehouse</button>
-	<button type="button" onclick="muffler()" >muffler</button>
+	<button type="button" onclick="muffler()" >Muffler</button>
 	<button type="button" onclick="springBack()" >Spring-Back</button>
 	<button type="button" onclick="stereoSpreader()" >Stereo Spreader</button>
 	<button type="button" onclick="bigEcho()" >Big Echo</button>	
@@ -103,7 +103,7 @@
 		//unplug everything first	
 		source.disconnect();
 		// use Convolver Helper
-		convolverHelper.loadPreset('sprintBack')
+		convolverHelper.loadPreset('springBack')
 		// connect sound source to convolver			
 		source.connect(convolver);
 		// then connect convolver to lineOut(speakers)
